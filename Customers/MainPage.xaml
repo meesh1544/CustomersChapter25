@@ -39,23 +39,31 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.RowSpan="6" Grid.Column="1" Grid.ColumnSpan="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="Black" Offset="0.929"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill> 
+                </Rectangle>
                 <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource LabelStyle}" Text="ID"/>
                 <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource LabelStyle}" Text="Title"/>
                 <TextBlock Grid.Row="0" Grid.Column="5" Style="{StaticResource LabelStyle}" Text="First Name"/>
                 <TextBlock Grid.Row="0" Grid.Column="7" Style="{StaticResource LabelStyle}" Text="Last Name"/>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="id" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" IsReadOnly="True" />
-                <TextBox Grid.Row="1" Grid.Column="5" x:Name="firstName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
-                <TextBox Grid.Row="1" Grid.Column="7" x:Name="lastName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
-                <ComboBox Grid.Row="1" Grid.Column="3" x:Name="title" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20" >
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="id" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.CustomerID, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" IsReadOnly="True" />
+                <TextBox Grid.Row="1" Grid.Column="5" x:Name="firstName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.FirstName, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
+                <TextBox Grid.Row="1" Grid.Column="7" x:Name="lastName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.LastName, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
+                <ComboBox Grid.Row="1" Grid.Column="3" x:Name="title" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20" SelectedValue="{Binding Current.Title, Mode=TwoWay}">
                     <ComboBoxItem Content="Mr" />
                     <ComboBoxItem Content="Mrs" />
                     <ComboBoxItem Content="Ms" />
                     <ComboBoxItem Content="Miss" />
                 </ComboBox>
                 <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource LabelStyle}" Text="Email" />
-                <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5" x:Name="email" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="400" FontSize="20" />
+                <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="5" x:Name="email" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.EmailAddress, Mode=TwoWay}" VerticalAlignment="Center" Width="400" FontSize="20" />
                 <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyle}" Text="Phone" />
-                <TextBox Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" x:Name="phone" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" FontSize="20" />
+                <TextBox Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" x:Name="phone" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.Phone, Mode=TwoWay}" VerticalAlignment="Center" Width="200" FontSize="20" />
             </Grid>
         
         <VisualStateManager.VisualStateGroups>
@@ -100,27 +108,41 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Grid.RowSpan="6" Grid.Column="1" Grid.ColumnSpan="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="Black" Offset="0.929"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
                 <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="ID"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Title"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="First Name"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Last Name"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="cId" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" IsReadOnly="True" />
-                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="cFirstName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
-                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="cLastName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
-                    <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cTitle" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20" >
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="cId" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.CustomerID, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" IsReadOnly="True" />
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="cFirstName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.FirstName,Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="cLastName" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.LastName, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
+                    <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cTitle" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20" SelectedValue="{Binding Current.Title, Mode=TwoWay}" >
                         <ComboBoxItem Content="Mr" />
                         <ComboBoxItem Content="Mrs" />
                         <ComboBoxItem Content="Ms" />
                         <ComboBoxItem Content="Miss" />
                     </ComboBox>
                 <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Email"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="cEmail" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="cEmail" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.EmailAddress, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
                 <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource LabelStyle}" Text="Phone"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" x:Name="cPhone" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="20" />
+                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" x:Name="cPhone" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Current.Phone, Mode=TwoWay}" VerticalAlignment="Center" FontSize="20" />
                 </Grid>
             
             
             </Grid>
        
     </Grid>
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="previousCustomer" Icon="Previous" Label="Previous" Command="{Binding Path=PreviousCustomer}"/>
+            <AppBarButton x:Name="nextCustomer" Icon="Next" Label="Next" Command="{Binding Path=NextCustomer}"/>
+        </CommandBar>
+    </Page.TopAppBar>
 </Page>

@@ -25,6 +25,15 @@ namespace Customers
         public MainPage()
         {
             this.InitializeComponent();
+
+            List<string> titles = new List<string>
+            {
+                "Mr", "Mrs", "Ms", "Miss"
+            };
+            this.title.ItemsSource = titles;
+            this.cTitle.ItemsSource = titles;
+            ViewModel viewModel= new ViewModel();
+            this.DataContext = viewModel;
         }
     }
 }
